@@ -1,0 +1,46 @@
+{
+    "responseTime": "2024-06-12T08:15:50.891Z",
+    "response": {
+        "transactionId": "HB4xlBhqYVSMfIpQyxe1eMnAa9e6COoQbHZeKehrQRU",
+        "consentAction": "CAPTURE",
+        "profileUpdateRequired": true,
+        "claimStatus": [
+            {
+                "claim": "phone_number",
+                "verified": false,
+                "available": true
+            },
+            {
+                "claim": "birthdate",
+                "verified": false,
+                "available": false
+            },
+            {
+                "claim": "address",
+                "verified": false,
+                "available": false
+            },
+            {
+                "claim": "gender",
+                "verified": false,
+                "available": false
+            },
+            {
+                "claim": "name",
+                "verified": false,
+                "available": true
+            },
+            {
+                "claim": "picture",
+                "verified": false,
+                "available": false
+            },
+            {
+                "claim": "email",
+                "verified": false,
+                "available": false
+            }
+        ]
+    },
+    "errors": []
+}

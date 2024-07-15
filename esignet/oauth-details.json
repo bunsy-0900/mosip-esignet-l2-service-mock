@@ -1,0 +1,130 @@
+{
+    "responseTime": "2024-06-12T08:15:47.221Z",
+    "response": {
+        "transactionId": "HB4xlBhqYVSMfIpQyxe1eMnAa9e6COoQbHZeKehrQRU",
+        "logoUrl": "https://healthservices-l2.camdgc-dev1.mosip.net/logo.png",
+        "authFactors": [
+            [
+                {
+                    "type": "OTP",
+                    "count": 0,
+                    "subTypes": null
+                }
+            ],
+            [
+                {
+                    "type": "BIO",
+                    "count": 1,
+                    "subTypes": null
+                }
+            ],
+            [
+                {
+                    "type": "WALLET",
+                    "count": 0,
+                    "subTypes": null
+                }
+            ],
+            [
+                {
+                    "type": "PWD",
+                    "count": 0,
+                    "subTypes": null
+                }
+            ],
+            [
+                {
+                    "type": "PIN",
+                    "count": 0,
+                    "subTypes": null
+                }
+            ]
+        ],
+        "authorizeScopes": [],
+        "essentialClaims": [
+            "phone_number"
+        ],
+        "voluntaryClaims": [
+            "birthdate",
+            "address",
+            "gender",
+            "name",
+            "picture",
+            "email"
+        ],
+        "configs": {
+            "sbi.env": "Developer",
+            "sbi.timeout.DISC": 30,
+            "sbi.timeout.DINFO": 30,
+            "sbi.timeout.CAPTURE": 30,
+            "sbi.capture.count.face": 1,
+            "sbi.capture.count.finger": 1,
+            "sbi.capture.count.iris": 1,
+            "sbi.capture.score.face": 70,
+            "sbi.capture.score.finger": 70,
+            "sbi.capture.score.iris": 70,
+            "resend.otp.delay.secs": 180,
+            "send.otp.channels": "email,phone",
+            "captcha.sitekey": "6Le6x-QpAAAAAEV7UjGyDOOkyVUrWhZ3Im3mL0hj",
+            "captcha.enable": "send-otp,pwd",
+            "auth.txnid.length": "10",
+            "preauth-screen-timeout-in-secs": 60,
+            "consent.screen.timeout-in-secs": 120,
+            "consent.screen.timeout-buffer-in-secs": 5,
+            "linked-transaction-expire-in-secs": 240,
+            "sbi.port.range": "4501-4600",
+            "sbi.bio.subtypes.iris": "UNKNOWN",
+            "sbi.bio.subtypes.finger": "UNKNOWN",
+            "wallet.qr-code-buffer-in-secs": 10,
+            "otp.length": 6,
+            "password.regex": "^.{8,20}$",
+            "password.max-length": 20,
+            "username.regex": "^[1-9][0-9]{7,8}$",
+            "username.prefix": "+855",
+            "username.postfix": "@phone",
+            "username.max-length": 9,
+            "username.input-type": "number",
+            "wallet.config": [
+                {
+                    "wallet.name": "Inji Mobile App",
+                    "wallet.logo-url": "inji_logo.png",
+                    "wallet.download-uri": "#",
+                    "wallet.deep-link-uri": "inji://landing-page-name?linkCode=LINK_CODE&linkExpireDateTime=LINK_EXPIRE_DT"
+                }
+            ],
+            "signup.config": {
+                "signup.banner": true,
+                "signup.url": "https://signup-l2.camdgc-dev1.mosip.net/signup"
+            },
+            "forgot-password.config": {
+                "forgot-password": true,
+                "forgot-password.url": "https://signup-l2.camdgc-dev1.mosip.net/reset-password"
+            },
+            "eKYC-steps.config": "https://signup-l2.camdgc-dev1.mosip.net/identity-verification",
+            "error.banner.close-timer": 10,
+            "auth.factor.kba.individual-id-field": "policyNumber",
+            "auth.factor.kba.field-details": [
+                {
+                    "id": "policyNumber",
+                    "type": "text",
+                    "format": "",
+                    "maxLength": 50,
+                    "regex": "^\\s*[+-]?(\\d+|\\d*\\.\\d+|\\d+\\.\\d*)([Ee][+-]?\\d*)?\\s*$"
+                },
+                {
+                    "id": "fullName",
+                    "type": "text",
+                    "format": "",
+                    "maxLength": 50,
+                    "regex": "[a-zA-Z]+(\\s+[a-zA-Z]+)*"
+                }
+            ]
+        },
+        "redirectUri": "https://healthservices-l2.camdgc-dev1.mosip.net/userprofile",
+        "clientName": {
+            "@none": "Healthservice-l2"
+        },
+        "credentialScopes": []
+    },
+    "errors": []
+}
