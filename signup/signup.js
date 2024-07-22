@@ -58,7 +58,7 @@ signupRoute.post("/identity-verification/slot", (req, res) => {
     slot.responseTime = currentTimestamp()
     setTimeout(() => {
       res.send(slot);
-    }, 5000);
+    }, 2000);
 });
 
 
