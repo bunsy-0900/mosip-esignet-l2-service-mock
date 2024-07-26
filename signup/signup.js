@@ -64,7 +64,7 @@ signupRoute.get("/identity-verification/status", (req, res) => {
   status.responseTime = currentTimestamp();
   setTimeout(() => {
     res.send(status);
-  }, 2000);
+  }, 5000);
 });
 
 // wss.on("connection", (ws) => {

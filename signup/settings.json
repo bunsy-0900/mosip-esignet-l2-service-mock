@@ -25,6 +25,7 @@
       "fullname.length.max": 30,
       "otp.blocked": 300,
       "send-challenge.captcha.required": true,
+      "esignet-consent.redirect-url": "https://esignet-l2.camdgc-dev1.mosip.net/consent",
       "broswer.minimum-version": {
         "chrome": "118.0.5993.72",
         "firefox": "118.0.2",
