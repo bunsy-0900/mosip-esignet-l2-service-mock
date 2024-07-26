@@ -20,5 +20,33 @@
         "titleBar.inactiveBackground": "#d6d5b399",
         "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.color": "#D6D5B3"
+    "peacock.color": "#D6D5B3",
+    "todohighlight.keywords": [
+        {
+            "text": "NOTE:",
+            "color": "#2D7DD2",
+            "backgroundColor": "#EEB902",
+            "border": "1px dotted #2D7DD2",
+            "borderRadius": "2px"
+        },
+        {
+            "text": "ENV:",
+            "color": "#57CC99",
+            "backgroundColor": "#22577A",
+            "border": "1px dotted #57CC99",
+            "borderRadius": "2px"
+        }
+    ],
+    "todo-tree.highlights.customHighlight": {
+        "NOTE": {
+            "icon": "pencil",
+            "type": "none",
+            "iconColour": "#EEB902"
+        },
+        "ENV": {
+            "icon": "gear",
+            "type": "none",
+            "iconColour": "#22577A"
+        },
+    }
 }
