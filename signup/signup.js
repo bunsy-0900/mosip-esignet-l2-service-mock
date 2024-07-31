@@ -62,6 +62,9 @@ signupRoute.post("/identity-verification/slot", (req, res) => {
 
 signupRoute.get("/identity-verification/status", (req, res) => {
   status.responseTime = currentTimestamp();
+  status.response.status = "COMPLETED";
+  // status.response.status = "FAILED";
+  // status.response.status = "UPDATE_PENDING";
   setTimeout(() => {
     res.send(status);
   }, 5000);
