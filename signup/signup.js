@@ -7,13 +7,17 @@ const signupRoute = express.Router();
 const currentTimestamp = () => new Date().toISOString();
 
 const settingsResponse = require("./settings.json");
-const status = require("./status.json");
 const challenge = require("./challenge.json");
 const verifyChallenge = require("./verifyChallenge.json");
 const register = require("./register.json");
 const kycProviderList = require("./kycProvidersList.json");
 const termsAndConditions = require("./kyc_terms_condition.json");
 const slot = require("./slot.json");
+
+const statusCompleted = require("./status/status_completed.json");
+const statusFailed = require("./status/status_failed.json");
+const statusUpdatePending = require("./status/status_update_pending.json");
+const statusInvalidTransaction = require("./status/status_invalid_transaction.json");
 
 signupRoute.get("/settings", (req, res) => {
   settingsResponse.responseTime = currentTimestamp();
@@ -61,13 +65,34 @@ signupRoute.post("/identity-verification/slot", (req, res) => {
 });
 
 signupRoute.get("/identity-verification/status", (req, res) => {
-  status.responseTime = currentTimestamp();
-  status.response.status = "COMPLETED";
+  const TIMEOUT = 5_000;
+
+  // change to current timestamp
+  statusCompleted.responseTime = currentTimestamp();
+  statusFailed.responseTime = currentTimestamp();
+  statusUpdatePending.responseTime = currentTimestamp();
+  statusInvalidTransaction.responseTime = currentTimestamp();
+
+  setTimeout(() => {
+    // USE CASE: COMPLETED
+    // res.send(statusCompleted);
+
+    // USE CASE: FAILED
+    // res.send(statusFailed);
+
+    // USE CASE: UPDATE_PENDING
+    // res.send(statusUpdatePending);
+
+    // USE CASE: INVALID_TRANSACTION
+    res.send(statusInvalidTransaction);
+  }, TIMEOUT);
+
+  // status.response.status = "COMPLETED";
   // status.response.status = "FAILED";
   // status.response.status = "UPDATE_PENDING";
-  setTimeout(() => {
-    res.send(status);
-  }, 5000);
+  // setTimeout(() => {
+  //   res.send(status);
+  // }, 5000);
 });
 
 // wss.on("connection", (ws) => {
