@@ -35,7 +35,14 @@
             "backgroundColor": "#22577A",
             "border": "1px dotted #57CC99",
             "borderRadius": "2px"
-        }
+        },
+        {
+            "text": "USE CASE:",
+            "color": "#EBEBEB",
+            "backgroundColor": "#52489C",
+            "border": "1px dotted #52489C",
+            "borderRadius": "2px"
+        },
     ],
     "todo-tree.highlights.customHighlight": {
         "NOTE": {
@@ -47,6 +54,11 @@
             "icon": "gear",
             "type": "none",
             "iconColour": "#22577A"
+        },
+        "USE CASE": {
+            "icon": "gear",
+            "type": "none",
+            "iconColour": "#52489C"
         },
     }
 }
