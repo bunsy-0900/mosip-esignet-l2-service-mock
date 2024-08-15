@@ -18,9 +18,15 @@ const statusCompleted = require("./status/status_completed.json");
 const statusFailed = require("./status/status_failed.json");
 const statusUpdatePending = require("./status/status_update_pending.json");
 const statusInvalidTransaction = require("./status/status_invalid_transaction.json");
+const statusUnknownError = require("./status/status_unknown_error.json");
 
 signupRoute.get("/settings", (req, res) => {
   settingsResponse.responseTime = currentTimestamp();
+
+  // NOTE: Config Changes
+  settingsResponse.response.configs["status.request.retry.error.codes"] =
+    "unknown_error";
+
   res.send(settingsResponse);
 });
 
@@ -65,34 +71,43 @@ signupRoute.post("/identity-verification/slot", (req, res) => {
 });
 
 signupRoute.get("/identity-verification/status", (req, res) => {
-  const TIMEOUT = 5_000;
+  const TIMEOUT = 2_500;
 
   // change to current timestamp
   statusCompleted.responseTime = currentTimestamp();
   statusFailed.responseTime = currentTimestamp();
   statusUpdatePending.responseTime = currentTimestamp();
+  statusUnknownError.responseTime = currentTimestamp();
   statusInvalidTransaction.responseTime = currentTimestamp();
 
   setTimeout(() => {
-    // USE CASE: COMPLETED
-    // res.send(statusCompleted);
+    /**
+     * USE CASE: COMPLETED
+     */
+    res.send(statusCompleted);
 
-    // USE CASE: FAILED
+    /**
+     * USE CASE: FAILED
+     */
     // res.send(statusFailed);
 
-    // USE CASE: UPDATE_PENDING
+    /**
+     * USE CASE: UPDATE_PENDING
+     * - retriable status
+     */
     // res.send(statusUpdatePending);
 
-    // USE CASE: INVALID_TRANSACTION
-    res.send(statusInvalidTransaction);
-  }, TIMEOUT);
+    /**
+     * USE CASE: UNKNOWN_ERROR
+     * - retriable error code
+     */
+    // res.send(statusUnknownError);
 
-  // status.response.status = "COMPLETED";
-  // status.response.status = "FAILED";
-  // status.response.status = "UPDATE_PENDING";
-  // setTimeout(() => {
-  //   res.send(status);
-  // }, 5000);
+    /**
+     * USE CASE: INVALID_TRANSACTION
+     */
+    // res.send(statusInvalidTransaction);
+  }, TIMEOUT);
 });
 
 // wss.on("connection", (ws) => {
