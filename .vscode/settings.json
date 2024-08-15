@@ -43,6 +43,13 @@
             "border": "1px dotted #52489C",
             "borderRadius": "2px"
         },
+        {
+            "text": "SECTION:",
+            "color": "#EBEBEB",
+            "backgroundColor": "#F08A4B",
+            "border": "1px dotted #F08A4B",
+            "borderRadius": "2px"
+        },
     ],
     "todo-tree.highlights.customHighlight": {
         "NOTE": {
@@ -59,6 +66,11 @@
             "icon": "gear",
             "type": "none",
             "iconColour": "#52489C"
+        },
+        "SECTION": {
+            "icon": "note",
+            "type": "none",
+            "iconColour": "#F08A4B"
         },
     }
 }

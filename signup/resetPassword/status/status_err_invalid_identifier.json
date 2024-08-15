@@ -1,0 +1,10 @@
+{
+  "responseTime": "2022-09-22T08:03:50.287Z",
+  "response": null,
+  "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "errorMessage": "invalid_identifier"
+    }
+  ]
+}

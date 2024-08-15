@@ -9,9 +9,8 @@ const server = http.createServer(app);
 // });
 
 const port = 8088;
-const { WebSocketServer } = require('ws');
+const { WebSocketServer } = require("ws");
 const wss = new WebSocketServer({ server, path: "/v1/signup/ws" });
-
 
 const signupRoute = require("./signup/signup");
 const esignetRoute = require("./esignet/esignet");
@@ -45,62 +44,6 @@ app.use(function (req, res, next) {
 app.use("/v1/signup", signupRoute);
 
 app.use("/v1/esignet", esignetRoute);
-
-// const wsServer = new WS.Server({ noServer: true, path: "/v1/signup/identity-verification/ws" });
-// io.on("connection", (socket) => {
-//   // message event
-//   socket.on("message", (message) => {
-//     console.log(`Received message => ${message}`);
-//     socket.send(`Received message => ${message}`);
-//   });
-
-//   //on disconnect
-//   socket.on("disconnect", () => {
-//     console.log("Client disconnected");
-//   });
-//   // on error
-//   socket.on("error", (error) => {
-//     console.log(`Error: ${error}`);
-//   });
-//   // process-frame event
-//   socket.on("/process-frame", (data) => {
-//     const res = {
-//       slotId: data.request.slotId,
-//       step: {
-//         code: data.request.stepCode,
-//         framesPerSecond: 20,
-//         durationInSeconds: 200,
-//         startupDelayInSeconds: 4,
-//         retryOnTimeout: false,
-//         retryableErrorCodes: [],
-//       },
-//       feedback: { type: "", code: "" },
-//     };
-//     console.log("Getting request data from ui: ", JSON.stringify(data));
-//     socket.emit("/ws", res);
-//     // setTimeout(() => {
-//     //   res.step.code = 1;
-//     //   socket.emit("/ws", res);
-//     // }, res.step.startupDelayInSeconds * 1000);
-//     // switch (key) {
-//     //   case value:
-
-//     //     break;
-
-//     //   default:
-//     //     break;
-//     // }
-//   });
-
-//   socket.on("/v1/signup/ws/process-frame", (data) => {
-//     console.log("Getting request data from ui: ", JSON.stringify(data));
-//     socket.emit("/topic/greetings", data)
-//   })
-
-//   // on connected
-//   console.log("Client connected");
-//   // socket.emit("/process-frame", "Welcome to the signup service");
-// });
 
 wss.on("connection", onSocketConnect);
 
