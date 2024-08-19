@@ -72,13 +72,13 @@ signupRoute.get("/registration/status", (req, res) => {
      * USE CASE: PENDING
      * - retriable status
      */
-    res.send(registerStatusPending);
+    // res.send(registerStatusPending);
 
     /**
      * USE CASE: UNKNOWN_ERROR
      * - retriable error code
      */
-    // res.send(registerStatusUnknownError);
+    res.send(registerStatusUnknownError);
 
     /**
      * USE CASE: INVALID_TRANSACTION
@@ -167,7 +167,7 @@ signupRoute.get("/identity-verification/status", (req, res) => {
     /**
      * USE CASE: COMPLETED
      */
-    res.send(statusCompleted);
+    // res.send(statusCompleted);
 
     /**
      * USE CASE: FAILED
@@ -178,7 +178,7 @@ signupRoute.get("/identity-verification/status", (req, res) => {
      * USE CASE: UPDATE_PENDING
      * - retriable status
      */
-    // res.send(statusUpdatePending);
+    res.send(statusUpdatePending);
 
     /**
      * USE CASE: UNKNOWN_ERROR
