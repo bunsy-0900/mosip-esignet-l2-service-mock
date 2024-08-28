@@ -1,5 +1,6 @@
 const WebSocket = require("ws");
-const useCaseSuccessCheck = require("./usecase_success.json");
+// const useCaseSuccessCheck = require("./usecase_success.json");
+const useCaseSuccessCheck = require("./usecase_success_2.json");
 const useCaseFailedCheck = require("./usecase_failed.json");
 
 // ENV: variable for switching between successful and failed liveness check
