@@ -1,10 +1,10 @@
 {
-  "responseTime": "2024-03-25T18:04:10.477Z",
+  "responseTime": "2024-09-26T09:10:53.821Z",
   "response": {
     "configs": {
       "identifier.pattern": "^\\+855[1-9]\\d{7,8}$",
       "identifier.prefix": "+855",
-      "captcha.site.key": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+      "captcha.site.key": "6LfbFxEqAAAAAH3Bxj8QoHXfeWmGt-KSXDiP9Smv",
       "otp.length": 6,
       "password.pattern": "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\\x5F\\W])(?=.{8,20})[a-zA-Z0-9\\x5F\\W]{8,20}$",
       "password.length.max": 20,
@@ -13,26 +13,30 @@
       "resend.attempts": 3,
       "resend.delay": 60,
       "fullname.pattern": "^[\\u1780-\\u17FF\\u19E0-\\u19FF\\u1A00-\\u1A9F\\u0020]{1,30}$",
-      "status.request.delay": 5,
-      "status.request.limit": 4,
-      "status.request.retry.error.codes": "unknown_error,invalid_transaction",
+      "status.request.delay": 20,
+      "status.request.limit": 10,
+      "status.request.retry.error.codes": "unknown_error",
+      "slot.request.delay": 20,
+      "slot.request.limit": 10,
       "popup.timeout": 10,
-      "signin.redirect-url": "https://esignet.camdgc-dev1.mosip.net/authorize",
+      "signin.redirect-url": "https://esignetl2.camdgc-qa.mosip.net/authorize",
       "identifier.allowed.characters": "^[0-9]+",
       "identifier.length.min": 8,
       "identifier.length.max": 9,
-      "fullname.allowed.characters": "^[\\u1780-\\u17FF\\u19E0-\\u19FF\\u1A00-\\u1A9F\\u0020]",
+      "fullname.allowed.characters": "[^\\u1780-\\u17FF\\u19E0-\\u19FF\\u1A00-\\u1A9F\\u0020]",
       "fullname.length.min": 1,
       "fullname.length.max": 30,
       "otp.blocked": 300,
       "send-challenge.captcha.required": false,
-      "esignet-consent.redirect-url": "https://esignet-l2.camdgc-dev1.mosip.net/consent",
+      "signup.oauth-client-id": "mosip-signup-oauth-client",
+      "identity-verification.redirect-url": "https://signupl2.camdgc-qa.mosip.net/identity-verification",
       "broswer.minimum-version": {
-        "chrome": "118.0.5993.72",
-        "firefox": "118.0.2",
-        "edge": "118.0.2088.46",
-        "safari": "14.1"
-      }
+        "chrome": "118.0.0.0",
+        "firefox": "126.1.1",
+        "edge": "118.0.2535.93",
+        "safari": "16.1"
+      },
+      "esignet-consent.redirect-url": "https://esignetl2.camdgc-qa.mosip.net/consent"
     }
   },
   "errors": []

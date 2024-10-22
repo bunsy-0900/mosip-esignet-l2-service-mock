@@ -4,7 +4,7 @@ const signupRoute = express.Router();
 
 // const wss = new WS.WebSocketServer({server: WS.Server, path: "/ws"});
 
-const TIMEOUT = 2_500;
+const TIMEOUT = 500;
 
 const currentTimestamp = () => new Date().toISOString();
 
@@ -17,6 +17,8 @@ const slot = require("./slot.json");
 
 // SECTION: verify challenge endpoint section
 const verifyChallengeSuccess = require("./registration/verifyChallenge/verifyChallenge_success.json");
+const verifyChallengeIdentifierNotFound = require("./registration/verifyChallenge/verifyChallenge_err_identifier_not_found.json");
+const verifyChallengeInvalidTransaction = require("./registration/verifyChallenge/verifyChallenge_err_invalid_transaction.json");
 
 // SECTION: registration register status section
 const registerStatusCompleted = require("./registration/status/status_completed.json");
@@ -98,8 +100,30 @@ signupRoute.post("/registration/generate-challenge", (req, res) => {
 });
 
 signupRoute.post("/registration/verify-challenge", (req, res) => {
+  // verifyChallengeSuccess.responseTime = currentTimestamp();
+  // res.send(verifyChallengeSuccess);
+
+  // change to current timestamp
+  verifyChallengeIdentifierNotFound.responseTime = currentTimestamp();
   verifyChallengeSuccess.responseTime = currentTimestamp();
-  res.send(verifyChallengeSuccess);
+  verifyChallengeInvalidTransaction.responseTime = currentTimestamp();
+
+  setTimeout(() => {
+    /**
+     * USE CASE: SUCCESS
+     */
+    // res.send(verifyChallengeSuccess);
+
+    /**
+     * USE CASE: IDENTIFIER NOT FOUND
+     */
+    // res.send(verifyChallengeIdentifierNotFound);
+
+    /**
+     * USE CASE: INVALID TRANSACTION
+     */
+    res.send(verifyChallengeInvalidTransaction);
+  }, TIMEOUT);
 });
 
 signupRoute.post("/reset-password", (req, res) => {
@@ -172,13 +196,13 @@ signupRoute.get("/identity-verification/status", (req, res) => {
     /**
      * USE CASE: FAILED
      */
-    // res.send(statusFailed);
+    res.send(statusFailed);
 
     /**
      * USE CASE: UPDATE_PENDING
      * - retriable status
      */
-    res.send(statusUpdatePending);
+    // res.send(statusUpdatePending);
 
     /**
      * USE CASE: UNKNOWN_ERROR
